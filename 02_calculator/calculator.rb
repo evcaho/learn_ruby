@@ -12,3 +12,20 @@ def sum(params)
 	params.inject(0, &:+)
 end
 
+def multi(params)
+	total = 1
+	params.each do |num|
+		total = num * total
+	end
+	total
+end
+
+def power(num1, num2)
+	total = num1
+	final = (num2 - 1)
+	final.times do 
+		total = (num1 * total)
+	end
+	total
+end
+
