@@ -13,14 +13,19 @@ def translate(words)
 			word.tr!(second, "")
 			word.tr!(third, "")
 			"#{word}#{first}#{second}#{third}ay"
-		elsif vowels.include?(first) == false && vowels.include?(second) == false
+		elsif vowels.include?(first) == false && vowels.include?(second) == false && ("qu" == word[1..2]) == false
 			word.tr!(first, "") 
 			word.tr!(second, "")
 			"#{word}#{first}#{second}ay"
-		elsif word[0] == "q" && word[1] == "u"
+		elsif vowels.include?(third) && ("qu" == word[1..2])
 			word.tr!(first, "")
 			word.tr!(second, "")
-			"#{word}#{qu}ay"
+			word.tr!(third, "")
+			"#{word}#{first}#{second}#{third}ay"
+		elsif vowels.include?(second) && ("qu" == word[0..1]) 
+			word.tr!(first, "")
+			word.tr!(second, "")
+			"#{word}#{first}#{second}ay"
 		else
 			word.tr!(first, "")
 			"#{word}#{first}ay"
